@@ -11,8 +11,7 @@ def reader(filename):
 
 
 def count(ip_list):
-    count = Counter(ip_list)
-    return count
+    return Counter(ip_list)
 
 def write_csv(count):
     with open('output.csv', 'w') as csvfile:
@@ -20,7 +19,8 @@ def write_csv(count):
         header = ['IP', 'Frequence']
         writer.writerow(header)
         for item in count:
-            pass
+            writer.writerow((item, count[item]))
+
 
 if __name__ == '__main__':
-    reader('2023_10_31.log')
+    write_csv(count(reader('2023_10_31.log')))
